@@ -6,27 +6,39 @@
   import NotFound from "./Pages/NotFound.svelte";
   import Leaderboard from "./Pages/Leaderboard.svelte";
   import { state, Page } from "../modules/state";
+  import User from "./Pages/User.svelte";
+  import { onOutro } from "../modules/state";
+  import { fly } from "svelte/transition";
+  import Settings from "./Pages/Settings.svelte";
 
   $: current_page = $state.page;
 </script>
 
-<NotificationPanel />
-<Sidebar />
-
 {#if current_page === Page.Home}
-  <div>
+  <div in:fly={{ x: -100 }} out:fly={{ x: -100 }} on:outroend={onOutro}>
     <Home />
   </div>
+{:else if current_page === Page.User}
+  <div in:fly={{ x: -100 }} out:fly={{ x: -100 }} on:outroend={onOutro}>
+    <User />
+  </div>
 {:else if current_page === Page.Login}
-  <div>
+  <div in:fly={{ x: -100 }} out:fly={{ x: -100 }} on:outroend={onOutro}>
     <Login />
   </div>
 {:else if current_page === Page.NotFound}
-  <div>
+  <div in:fly={{ x: -100 }} out:fly={{ x: -100 }} on:outroend={onOutro}>
     <NotFound />
   </div>
 {:else if current_page === Page.Leaderboard}
-  <div>
+  <div in:fly={{ x: -100 }} out:fly={{ x: -100 }} on:outroend={onOutro}>
     <Leaderboard />
   </div>
+{:else if current_page === Page.Settings}
+  <div in:fly={{ x: -100 }} out:fly={{ x: -100 }} on:outroend={onOutro}>
+    <Settings />
+  </div>
 {/if}
+
+<NotificationPanel />
+<Sidebar />

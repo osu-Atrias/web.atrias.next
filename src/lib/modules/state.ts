@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
 import type { User } from "./user";
+import statefulSwap from "./stateful_swap";
 
 export enum Page {
     Home,
@@ -21,3 +22,5 @@ export class State {
 }
 
 export const state = writable<State>(new State());
+
+export const {onOutro, transitionTo} = statefulSwap(state, Page.Home)

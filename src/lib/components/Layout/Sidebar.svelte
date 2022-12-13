@@ -9,19 +9,17 @@
   import { user, test_login } from "../../modules/user";
   import { Page, state } from "../../modules/state";
   import { fly } from 'svelte/transition';
-  import Leaderboard from "../Pages/Leaderboard.svelte";
+  import { transitionTo } from "../../modules/state";
+  import Home from "../Pages/Home.svelte";
   const selected_class = "rounded-r-none shadow-none translate-x-2";
   $: selected = $state.page;
 
-  function set(page: Page){
-    $state.page = page;
-  }
 </script>
 
 <div
   class="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-blue-300 text-gray-600 shadow-lg jost"
 >
-  <button disabled={selected === Page.Home} class="sidebar-icon group {selected === Page.Home ? selected_class : ""}" on:click={() => set(Page.Home)}>
+  <button disabled={selected === Page.Home} class="sidebar-icon group {selected === Page.Home ? selected_class : ""}" on:click={() => transitionTo(Page.Home)}>
     <div class="m-2">
       <span class="sidebar-tooltip group-enabled:group-hover:scale-100">
         {$_("home")}
@@ -29,7 +27,7 @@
       <IoMdHome />
     </div>
   </button>
-  <button disabled={selected === Page.Leaderboard} class="sidebar-icon group {selected === Page.Leaderboard ? selected_class : ""}" on:click={() => set(Page.Leaderboard)}>
+  <button disabled={selected === Page.Leaderboard} class="sidebar-icon group {selected === Page.Leaderboard ? selected_class : ""}" on:click={() => transitionTo(Page.Leaderboard)}>
     <div class="m-2">
       <span class="sidebar-tooltip group-enabled:group-hover:scale-100">
         {$_("leaderboard")}
@@ -38,7 +36,7 @@
     </div>
   </button>
   {#if $user === null}
-    <button disabled={selected === Page.User} class="sidebar-icon group blink {selected === Page.User ? selected_class : ""}" transition:fly="{{ x: -50, duration: 200 }}" on:click={() => set(Page.User)}>
+    <button disabled={selected === Page.User} class="sidebar-icon group blink {selected === Page.User ? selected_class : ""}" transition:fly="{{ x: -50, duration: 200 }}" on:click={() => transitionTo(Page.User)}>
       <div class="m-2">
         <span class="sidebar-tooltip group-enabled:group-hover:scale-100">
           {$_("account")}
@@ -47,7 +45,7 @@
       </div>
     </button>
   {/if}
-  <button disabled={selected === Page.Settings} class="sidebar-icon group mt-auto mb-0 {selected === Page.Settings ? selected_class : ""}" on:click={() => set(Page.Settings)}>
+  <button disabled={selected === Page.Settings} class="sidebar-icon group mt-auto mb-0 {selected === Page.Settings ? selected_class : ""}" on:click={() => transitionTo(Page.Settings)}>
     <div class="m-2">
       <span class="sidebar-tooltip group-hover:scale-100">
         {$_("settings")}
