@@ -1,2 +1,11 @@
-# web.atrias.next
-the new web frontend for osu atrias
+# osu atrias frontend
+
+
+
+## how to dev/build
+
+```
+npm install
+npm run dev
+npm run build
+```
