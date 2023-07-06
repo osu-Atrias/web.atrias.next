@@ -8,5 +8,6 @@
   "account": "用户",
   "status": "状态",
   "notifications": "消息",
-  "user": "用户"
+  "user": "用户",
+  "offline": ""
 }

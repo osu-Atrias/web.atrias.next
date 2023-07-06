@@ -29,8 +29,8 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.2",
     "dayjs": "^1.11.6",
+    "navaid": "^1.2.0",
     "svelte-i18n": "^3.4.0",
-    "svelte-icons": "^2.1.0",
-    "svelte-routing": "^1.6.0"
+    "svelte-icons": "^2.1.0"
   }
 }

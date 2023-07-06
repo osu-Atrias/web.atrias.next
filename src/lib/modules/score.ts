@@ -7,5 +7,6 @@ export enum ShownType {
 
 export enum Size {
     Small,
-    Big,
+    Medium,
+    Large,
 }

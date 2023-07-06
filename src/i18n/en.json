@@ -1,6 +1,6 @@
 {
   "page_title": "Atrias",
-  "login_in": "Login in",
+  "login_in": "Sign in",
   "sign_up": "Sign up",
   "home": "Home",
   "leaderboard": "Leaderboard",
@@ -8,5 +8,7 @@
   "account": "User",
   "status": "Status",
   "notifications": "Notifications",
-  "user": "User"
+  "user": "User",
+  "online": "Online",
+  "offline": "Offline"
 }

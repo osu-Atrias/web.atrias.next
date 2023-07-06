@@ -35,7 +35,7 @@
       <IoIosListBox />
     </div>
   </button>
-  {#if $user === null}
+  {#if $user !== null}
     <button disabled={selected === Page.User} class="sidebar-icon group blink {selected === Page.User ? selected_class : ""}" transition:fly="{{ x: -50, duration: 200 }}" on:click={() => transitionTo(Page.User)}>
       <div class="m-2">
         <span class="sidebar-tooltip group-enabled:group-hover:scale-100">

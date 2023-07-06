@@ -1,6 +1,8 @@
 <script lang="ts">
   import { user, test_login } from "../../modules/user";
+  import { Page, state, transitionTo } from "../../modules/state";
   import { _ } from "svelte-i18n";
+  import Login from "./Login.svelte";
 </script>
 
 <div class="flex items-stretch min-h-screen bg-blue-100">
@@ -9,8 +11,13 @@
       <div class="home-h1">Atrias</div>
       <div class="home-h2">アトリは、高性能ですから!</div>
       <div class="flex flex-row">
-        <button class="slide button">{$_("login_in")}</button>
-        <button class="slide button">{$_("sign_up")}</button>
+        <button class="slide button" on:click={() => transitionTo(Page.Login)}
+          >{$_("login_in")}</button
+        >
+        <button
+          class="slide button"
+          on:click={() => transitionTo(Page.Register)}>{$_("sign_up")}</button
+        >
       </div>
     </div>
   </div>
@@ -26,8 +33,7 @@
     font-size: 1.5rem;
   }
 
-  .slide:hover,
-  .slide:focus {
+  .slide:hover {
     box-shadow: inset 8rem 0 0 0 var(--hover);
   }
 
@@ -46,8 +52,7 @@
     color: var(--color);
     transition: 0.25s;
 
-    &:hover,
-    &:focus {
+    &:hover {
       border-color: var(--hover);
       color: #fff;
     }
